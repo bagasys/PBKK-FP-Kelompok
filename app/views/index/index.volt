@@ -1,1 +1,5 @@
-<h1>Hello World</h1>
+{% extends "layouts/base.volt" %}
+
+{% block content %}
+<h1>content</h1>
+{% endblock %}
