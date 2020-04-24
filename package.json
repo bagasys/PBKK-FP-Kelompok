@@ -1,0 +1,24 @@
+{
+  "name": "PBKK-FP-Kelompok",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bagasys/PBKK-FP-Kelompok.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bagasys/PBKK-FP-Kelompok/issues"
+  },
+  "homepage": "https://github.com/bagasys/PBKK-FP-Kelompok#readme"
+}

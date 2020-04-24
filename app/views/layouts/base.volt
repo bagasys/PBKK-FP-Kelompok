@@ -6,44 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
-
+        <link rel="stylesheet" href="css/materialize.min.css">
     </head>
     <body>
-
         <header>
-            <h1>header</h1>
+            <nav>
+                <div class="nav-wrapper">
+                  <a href="#" class="brand-logo">Logo</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                  </ul>
+                </div>
+              </nav>
         </header>
 
-        <!-- Content -->
         {% block content %} {% endblock %}
 
-        <!-- Footer -->
         <footer>
          <h1> footer </h1>
         </footer>
-        <!-- Footer Section End -->
-
-
-
-
-        <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
-
-        <!-- Main -->
-        <!-- <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.nice-select.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.slicknav.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
-
-        Form -->
-        <!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-        <script src="vendor/bootstrap/js/popper.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendor/select2/select2.min.js"></script>
-        <script src="js/form/main.js"></script> -->
-
+        <script src="js/materialize.min.js"></script>
     </body>
 </html>
