@@ -23,7 +23,9 @@
           </ul>
       </header>
       <main>
-        {% block content %} {% endblock %}
+        {% block content %} 
+        
+        {% endblock %}
       </main>
           
       

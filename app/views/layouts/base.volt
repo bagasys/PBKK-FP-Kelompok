@@ -26,9 +26,7 @@
         </ul>
       </header>
 
-        <div class="">
         {% block content %} {% endblock %}
-      </div>
     
 
       <!-- Modal Structure -->

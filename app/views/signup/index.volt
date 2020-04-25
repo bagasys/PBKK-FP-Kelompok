@@ -12,7 +12,7 @@
       <h6>Join to our community</h6>
     </div>
   </div>
-    <form action="signup/register.php" method="post">
+    <form action="signup/register" method="post">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
