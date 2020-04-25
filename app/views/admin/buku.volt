@@ -41,8 +41,7 @@
 </div>
 
 
-
-</div>
+<div id="test2" class="col s12">
   <div class="container-admin">
     <form action="{{ url('admin/buku') }}">
       <div class="row">
@@ -99,10 +98,9 @@
           </button>
         </div>
       </div>
-      
     </form>
   </div>
-<div id="test2" class="col s12">Test 2</div>
+</div>
 
 
 
