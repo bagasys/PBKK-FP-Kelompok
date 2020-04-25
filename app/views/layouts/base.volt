@@ -32,7 +32,7 @@
     
 
       <!-- Modal Structure -->
-      <div id="modal-login" class="modal">
+      <div id="modal-login" class="modal" style="max-width: 500px;">
         <div class="modal-content">
           <div class="row right-align">
             <i class="material-icons prefix modal-close">close</i>
@@ -46,14 +46,14 @@
           
           <form action="/login" method="post">
             <div class="row">
-              <div class="input-field col s6 offset-s3">
+              <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
                 <input id="username" type="text" class="validate" name="username">
                 <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s6 offset-s3">
+              <div class="input-field col s12">
                 <i class="material-icons prefix">lock</i>
                 <input id="password" type="password" class="validate" name="password">
                 <label for="password">password</label>
