@@ -18,7 +18,7 @@
 
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="nama" type="text" class="validate" name="nama">
+          <input id="nama" type="text" class="validate" name="nama" required>
           <label for="nama">Nama</label>
         </div>
         
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">place</i>
-          <input type="text" id="alamat" class="validate" name="alamat">
+          <input type="text" id="alamat" class="validate" name="alamat" required>
           <label for="alamat">Alamat</label>
         </div>
       </div>
@@ -42,13 +42,13 @@
 
         <div class="input-field col s6">
           <i class="material-icons prefix"></i>
-          <input type="text" id="username" class="validate" name="username">
+          <input type="text" id="username" class="validate" name="username" required>
           <label for="username">Username</label>
         </div>
 
         <div class="input-field col s6">
           <i class="material-icons prefix"></i>
-          <input type="password" id="password" class="validate" name="password">
+          <input type="password" id="password" class="validate" name="password" required>
           <label for="password">Password</label>
         </div>
 
