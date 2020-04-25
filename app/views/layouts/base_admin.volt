@@ -17,7 +17,6 @@
     </head>
     <body>
       <header>
-        <nav class="white black-text"> Admin Area </nav>
         <ul id="slide-out" class="sidenav sidenav-fixed" style="max-width: 250px;">
             <li><a href="#!"><i class="material-icons">cloud</i>Admin Area</a></li>
             <li><a href="{{ url('admin/buku') }}">Buku</a></li>
@@ -63,6 +62,9 @@
           $(document).ready( function () {
               $('#table_id').DataTable();
           } );
+          $(document).ready(function(){
+            $('.tabs').tabs();
+          });
        </script>
     </body>
 </html>
