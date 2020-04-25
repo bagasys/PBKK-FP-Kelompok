@@ -17,7 +17,11 @@
             <a href="#!" class="brand-logo">Logo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
+              {% if session.get('auth') == null %} {# variable is not set #}
               <li><a class="modal-trigger" href="#modal-login">Login</a></li>
+              {% else %} {# variable is set #}
+              <li><a class="" href="/logout">Logout</a></li>
+              {% endif %}
             </ul>
           </div>
         </nav>
