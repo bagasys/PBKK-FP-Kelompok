@@ -9,8 +9,12 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="css/materialize.min.css">
       <link rel="stylesheet" href="css/style.css">
+      
+      
       <link rel="stylesheet" href="css/admin.css">
-  </head>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+    </head>
     <body>
       <header>
         <nav class="white black-text"> Admin Area </nav>
@@ -42,10 +46,10 @@
             </div>
           </footer>
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-        
         <script src="js/materialize.min.js"></script>
         <script src="js/init.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        
         <script>
           $(document).ready(function(){
             $('.sidenav').sidenav();
@@ -56,7 +60,9 @@
           $(document).ready(function(){
             $('.sidenav').sidenav();
           });
-          
+          $(document).ready( function () {
+              $('#table_id').DataTable();
+          } );
        </script>
     </body>
 </html>

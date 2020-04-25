@@ -15,6 +15,11 @@ $router->add('/', [
     'action' =>  'index'
 ]);
 
+$router->add('/:controller/:action', [
+    'namespace' => 'App\Controllers',
+    'controller' =>  1,
+    'action' =>  2,
+]);
 
 $router->add('/:controller', [
     'namespace' => 'App\Controllers',
@@ -29,11 +34,7 @@ $router->add('/:controller', [
 //     'params' => 2
 // ]);
 
-$router->add('/:controller/:action', [
-    'namespace' => 'App\Controllers',
-    'controller' =>  1,
-    'action' =>  2,
-]);
+
 
 // $router->add('/:controller/:action/:params', [
 //     'namespace' => 'App\Controllers',

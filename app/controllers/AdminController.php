@@ -10,5 +10,10 @@ class AdminController extends ControllerBase
     {
        
     }
+    
+    public function bukuAction()
+    {
+       
+    }
 
 }
