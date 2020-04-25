@@ -26,7 +26,7 @@
         </ul>
       </header>
 
-        <div class="container">
+        <div class="">
         {% block content %} {% endblock %}
       </div>
     
