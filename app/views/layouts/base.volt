@@ -12,25 +12,12 @@
   </head>
     <body>
       <header>
-            <!-- <nav class="white" role="navigation">
-                <div class="nav-wrapper container">
-                  <a id="logo-container" href="#" class="brand-logo">Logo</a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Navbar Link</a></li>
-                  </ul>
-            
-                  <ul id="nav-mobile" class="sidenav">
-                    <li><a href="#">Navbar Link</a></li>
-                  </ul>
-                  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                </div>
-              </nav> -->
         <nav class="white">
           <div class="nav-wrapper container">
             <a href="#!" class="brand-logo">Logo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html">Login</a></li>
+              <li><a class="modal-trigger" href="#modal-login">Login</a></li>
             </ul>
           </div>
         </nav>
@@ -42,7 +29,50 @@
         <div class="container">
         {% block content %} {% endblock %}
       </div>
-        
+    
+
+      <!-- Modal Structure -->
+      <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <div class="row right-align">
+            <i class="material-icons prefix modal-close">close</i>
+          </div>
+          
+          <div class="center-align">
+            <div class="row">
+              <h5>Login</h5>
+            </div>
+          </div>
+          
+          <form action="/login" method="post">
+            <div class="row">
+              <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" type="text" class="validate" name="username">
+                <label for="username">Username</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" type="password" class="validate" name="password">
+                <label for="password">password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6 offset-s3" style="">
+                <button class="btn waves-effect waves-light" style="width:100%" type="submit" name="action">Login
+                  <i class="material-icons">send</i>
+                </button>  
+              </div>
+              
+            </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div> -->
+      </div>
         
         <footer class="page-footer teal">
             <div class="container">
@@ -88,6 +118,10 @@
           $(document).ready(function(){
             $('.sidenav').sidenav();
           });
+          $(document).ready(function(){
+            $('.modal').modal();
+          });
+          
        </script>
     </body>
 </html>
