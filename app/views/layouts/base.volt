@@ -41,8 +41,9 @@
               <h5>Login</h5>
             </div>
           </div>
-          
+
           <form action="/login" method="post">
+
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
@@ -50,6 +51,7 @@
                 <label for="username">Username</label>
               </div>
             </div>
+
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">lock</i>
@@ -57,14 +59,15 @@
                 <label for="password">password</label>
               </div>
             </div>
-            <div class="row">
+            
+            <div class="row">    
               <div class="col s6 offset-s3" style="">
                 <button class="btn waves-effect waves-light" style="width:100%" type="submit" name="action">Login
                   <i class="material-icons">send</i>
                 </button>  
               </div>
-              
             </div>
+
           </form>
         </div>
         <!-- <div class="modal-footer">

@@ -45,6 +45,7 @@ class LoginController extends ControllerBase
        {
            $success = true;
            $this->_registerSession($user);
+           return $this->response->redirect('');
        }
        else $success = false;
 
