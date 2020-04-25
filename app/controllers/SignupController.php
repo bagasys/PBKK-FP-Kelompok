@@ -20,11 +20,16 @@ class SignupController extends ControllerBase
         $user->assign(
             $this->request->getPost(),
             [
-                'name',
-                'email'
+                'username',
+                'password',
+                'nama',
+                'alamat',
+                'noTelp'
             ]
         );
 
+        $user->password = sha1($user->password);
+        
         // Store and check for errors
         $success = $user->save();
 
