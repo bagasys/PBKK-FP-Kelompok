@@ -1,7 +1,19 @@
 {% extends "layouts/base_admin.volt" %}
 {% block content %}
-
-
+<main>
+  <nav class="white">
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </li>
+          <li class="tab col s12"><a href="#tambah-buku">Edit Buku</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-admin">
   <div id="tambah-buku" class="col s12">
     <div class="container-admin">
       <form action="{{ url('admin/updateBuku/1') }}" method="post" enctype='multipart/form-data'>
