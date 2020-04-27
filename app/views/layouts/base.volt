@@ -7,8 +7,8 @@
       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
       <title>Phalcon PHP Framework</title>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="css/materialize.min.css">
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="{{ url('css/materialize.min.css') }}">
+      <link rel="stylesheet" href="{{ url('css/style.css') }}">
   </head>
     <body>
       <header>
@@ -117,7 +117,7 @@
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
         
-        <script src="js/materialize.min.js"></script>
+          <script src="{{ url('js/materialize.min.js') }}"></script>
         <script src="js/init.js"></script>
         <script>
           $(document).ready(function(){

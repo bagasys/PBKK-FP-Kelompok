@@ -20,9 +20,10 @@
         <ul id="slide-out" class="sidenav sidenav-fixed" style="max-width: 250px;">
             <li><a href="#!"><i class="material-icons">cloud</i>Admin Area</a></li>
             <li><a href="{{ url('admin/buku') }}">Buku</a></li>
-            <li><div class="divider"></div></li>
+            <li><a href="{{ url('admin/peminjaman') }}">Peminjaman</a></li>
+            <!-- <li><div class="divider"></div></li>
             <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
           </ul>
       </header>
       <main>

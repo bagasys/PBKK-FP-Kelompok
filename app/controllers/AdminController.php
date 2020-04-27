@@ -16,4 +16,14 @@ class AdminController extends ControllerBase
        
     }
 
+    public function peminjamanAction()
+    {
+       
+    }
+    
+    public function editbukuAction()
+    {
+       
+    }
+
 }

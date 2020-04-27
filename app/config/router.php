@@ -8,6 +8,24 @@ $router->removeExtraSlashes(true);
 
 // setting manual routes
 
+
+
+
+$router->add('/katalog/:params', [
+    'namespace' => 'App\Controllers',
+    'controller' =>  'katalog',
+    'action' => 'detail',
+    'params' =>  1,
+]);
+
+$router->add('/katalog', [
+    'namespace' => 'App\Controllers',
+    'controller' =>  'katalog',
+]);
+
+
+
+
 // setting automatic routes
 $router->add('/', [
     'namespace' => 'App\Controllers',
@@ -15,17 +33,34 @@ $router->add('/', [
     'action' =>  'index'
 ]);
 
-$router->add('/:controller/:action', [
-    'namespace' => 'App\Controllers',
-    'controller' =>  1,
-    'action' =>  2,
-]);
 
-$router->add('/:controller', [
-    'namespace' => 'App\Controllers',
-    'controller' =>  1,
-    'action' =>  'index'
-]);
+
+
+
+
+
+
+
+// $router->add('/admin/edit-buku/:params', [
+//     'namespace' => 'App\Controllers',
+//     'controller' =>  'admin',
+//     'action' =>  'editbuku',
+//     'params' =>  1,
+// ]);
+
+
+
+// $router->add('/:controller/:action', [
+//     'namespace' => 'App\Controllers',
+//     'controller' =>  1,
+//     'action' =>  2,
+// ]);
+
+// $router->add('/:controller', [
+//     'namespace' => 'App\Controllers',
+//     'controller' =>  1,
+//     'action' =>  'index'
+// ]);
 
 // $router->add('/:controller/:params', [
 //     'namespace' => 'App\Controllers',
