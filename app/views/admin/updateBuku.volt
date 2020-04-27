@@ -50,7 +50,11 @@
             <textarea id="deskripsi" class="materialize-textarea" data-length="120" name="deskripsi">{{buku.deskripsi}}</textarea>
             <label for="deskripsi">Deskripsi</label>
           </div>
-          <div class="input-field col s12">
+
+          <div class="col s12 m2">
+            <img src="/public/{{buku.gambar}}" alt="" srcset="" style="height: 100px;">
+          </div>
+          <div class="input-field col s9">
             <div class="file-field input-field">
               <div class="btn">
                 <span>Cover</span>
