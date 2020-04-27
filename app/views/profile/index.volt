@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container">
+
     <div class="row card-panel">
       <div class="col s6 m4">
         <div class="">
@@ -17,6 +18,7 @@
         <p>Deskripsi</p>
       </div>
     </div>
+    
     <div class="row card-panel">
       <div class="col s12">
         <h4>Peminjaman Aktif</h4>
@@ -41,10 +43,31 @@
               <div class="secondary-content black-text">3 hari lagi</div>
               <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i> </a> -->
             </li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="row card-panel">
+      <div class="col s12">
+        <h4>Wish List</h4>
+        <ul class="collection">
+          
+          {% for book in books %}
+            <li class="collection-item avatar">
+                <i class="material-icons circle">folder</i>
+                <span class="title">{{book.judul}}</span>
+              <p>Deskripsi :
+                {{ book.deskripsi }}
+              </p>
+              <div class="secondary-content black-text">3 hari lagi</div>
+              <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i> </a> -->
+            </li>
+          {% endfor %}
 
           </ul>
       </div>
     </div>
+
 </div>
 
 {% endblock %}
