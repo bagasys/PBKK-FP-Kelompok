@@ -20,25 +20,20 @@
   <table id="table_id" class="display">
     <thead>
       <tr>
-        <th>ISBN</th>
-        <th>Judul Buku</th>
-        <th>Aksi</th>
+        <th>id buku</th>
+        <th>id user</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-          <td>123</td>
-          <td>Bukuku</td>
+      {%for peminjaman in peminjamans%}
+        <tr>
+          <td>{{peminjaman.bukuId}}</td>
+          <td>{{peminjaman.userId}}</td>
           <td>
-              <a href="#"><i class="material-icons prefix">search</i></a>
-              <a href="{{ url('admin/editbuku/1') }}"><i class="material-icons prefix">edit</i></a>
+              <!-- <a href="{{ url('admin/editbuku/1') }}"><i class="material-icons prefix">edit</i></a> -->
           </td>
-      </tr>
-      <tr>
-          <td>321</td>
-          <td>Bukumu</td>
-          <td><a href="#"><i class="material-icons prefix">search</i></a></td>
-      </tr>
+        </tr>
+      {%endfor%}
     </tbody>
   </table>
   </div>
@@ -46,15 +41,23 @@
 
   <div id="tambah-peminjaman" class="col s12">
     <div class="container-admin">
-      <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
+      <form action="{{ url('admin/createPeminjaman') }}" method="post">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
-            <label for="isbn">ISBN</label>
+            <input id="bukuId" type="text" class="validate" name="bukuId" placeholder="Ex: 978-0-262-03384-8" required>
+            <label for="bukuId">id buku</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="judul" type="text" class="validate" name="judul" placeholder="Ex: Sophie's World" required>
-            <label for="judul">Judul</label>
+            <input id="userId" type="text" class="validate" name="userId" placeholder="Ex: Sophie's World" required>
+            <label for="userId">id user</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="tglPeminjaman" type="text" class="datepicker" name="tglPeminjaman" placeholder="Tanggal Pinjam" required>
+            <label for="tglPeminjaman"></label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="lamaPinjam" type="number" class="validate" name="lamaPinjam" placeholder="3" required>
+            <label for="lamaPinjam">Lama Pinjam (hari)</label>
           </div>
         </div>
         <div class="row">

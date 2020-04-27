@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 use App\Models\Books;
+use App\Models\Peminjamans;
 
 class AdminController extends ControllerBase
 {
 
     public function indexAction()
     {
+
     }
 
     public function bukuAction(){
@@ -110,7 +112,34 @@ class AdminController extends ControllerBase
 
     public function peminjamanAction()
     {
-       
+        $peminjamans = Peminjamans::find();
+        $this->view->peminjamans = $peminjamans;
+    }
+    
+    public function createPeminjamanAction()
+    {
+        $peminjaman = new Peminjamans();
+        //assign value from the form to $user
+        $peminjaman->userId = $this->request->getPost('userId');
+        $peminjaman->bukuId = $this->request->getPost('bukuId');
+        $peminjaman->tglPeminjaman = $this->request->getPost('penulis');
+        $peminjaman->tglHarusKembali = $this->request->getPost('genre');
+
+        $success = $peminjaman->save();
+
+        // passing the result to the view
+        $this->view->success = $success;
+
+        if ($success) {
+            $message = "Thanks for registering!";
+        } else {
+            $message = "Sorry, the following problems were generated:<br>"
+                     . implode('<br>', $peminjaman->getMessages());
+        }
+
+        // passing a message to the view
+        $this->view->message = $message;
+        return $this->response->redirect('/admin/peminjaman');
     }
 
 }
