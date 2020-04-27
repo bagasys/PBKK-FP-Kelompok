@@ -23,7 +23,7 @@ class KatalogController extends ControllerBase
         $paginator = new PaginatorArray(
             [
                 'data'  => $books,
-                'limit' => 5,
+                'limit' => 12,
                 'page'  => $currentPage,
             ]
         );
