@@ -16,4 +16,12 @@ class Books extends Model
     public $jumlahKeluar;
     public $dendaPerHari;
     public $status;
+
+    public function onConstruct() {
+    
+    Model::setup(array(    
+        'notNullValidations' => false
+    ));
+    }
+ 
 }
