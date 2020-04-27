@@ -14,7 +14,7 @@
   </div>
 
   <!-- form tambah buku -->
-    <form action="tes/tambah" method="post">
+    <form action="tes/tambah" method="post" enctype='multipart/form-data'>
 
         <div class="field">
             <label for="isbn">ISBN / ISSN</label>

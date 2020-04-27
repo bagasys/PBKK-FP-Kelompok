@@ -31,7 +31,7 @@ class TesController extends ControllerBase
 
         $path ='books/'.$book->isbn.'.jpg';
         if ($this->request->hasFiles(true)) {
-            $gambar = $this->request->getUploadedFiles();
+            $gambar = $this->request->getUploadedFiles()[0];
             $gambar->moveTo($path);
             $this->view->cek = "Hiiiiiiiiiii";
         }
