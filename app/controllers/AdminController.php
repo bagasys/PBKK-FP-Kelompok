@@ -12,14 +12,6 @@ class AdminController extends ControllerBase
         $books = Books::find();
         $this->view->books = $books;
     }
-    
-    public function bukuAction()
-    {
-       
-    }
-    public function detailbukuAction(){
-        
-    }
 
     public function createBukuAction()
     {
@@ -64,13 +56,47 @@ class AdminController extends ControllerBase
         // passing a message to the view
         $this->view->message = $message;
     }
-    
-    public function updateBukuAction()
-    {
-        $bukuId = $this->dispatcher->getParam(3);
+
+    public function readBukuAction(){
+        $bukuId = $this->dispatcher->getParam(0);
 
         $buku = Books::findFirst("bukuId = '$bukuId'");
         $this->view->buku = $buku;
+    }
+    
+    public function updateBukuAction()
+    {
+        $bukuId = $this->dispatcher->getParam(0);
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+
+        if ($this->request->isPost()) {
+            $buku = new Books();
+
+            //assign value from the form to $user
+            $buku->isbn = $this->request->getPost('isbn');
+            $buku->judul = $this->request->getPost('judul');
+            $buku->penulis = $this->request->getPost('penulis');
+            $buku->genre = $this->request->getPost('genre');
+            $buku->penerbit = $this->request->getPost('penerbit');
+            $buku->deskripsi = $this->request->getPost('deskripsi');
+            $buku->jumlah = $this->request->getPost('jumlah');
+            $buku->dendaPerHari = $this->request->getPost('dendaPerHari');
+
+            $path ='books/'.$buku->isbn.'.jpg';
+            if ($this->request->hasFiles(true)) {
+                $gambar = $this->request->getUploadedFiles()[0];
+                $gambar->moveTo($path);
+            }
+            $buku->gambar = $path;
+            $buku->save();
+        }
+
+        $this->view->buku = $buku;
+    }
+
+    public function deleteBukuAction()
+    {
+        $bukuId = $this->dispatcher->getParam(0);
     }
 
     public function peminjamanAction()

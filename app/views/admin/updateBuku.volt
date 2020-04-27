@@ -18,7 +18,7 @@
 
   <div id="tambah-buku" class="col s12">
     <div class="container-admin">
-      <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
+      <form action="{{ url('admin/updateBuku') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" value="{{ buku.isbn }}" required>
