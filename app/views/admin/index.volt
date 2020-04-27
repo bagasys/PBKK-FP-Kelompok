@@ -38,6 +38,7 @@
                 <td>
                     <a href="/admin/readBuku/{{book.bukuId}}"><i class="material-icons prefix">search</i></a>
                     <a href="/admin/updateBuku/{{book.bukuId}}" ><i class="material-icons prefix">edit</i></a>
+                    <a href="/admin/deleteBuku/{{book.bukuId}}"><i class="material-icons prefix">delete</i></a>
                 </td>
             </tr>
       {% endfor %}
