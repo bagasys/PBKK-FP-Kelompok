@@ -119,15 +119,13 @@ class AdminController extends ControllerBase
     public function createPeminjamanAction()
     {
         $peminjaman = new Peminjamans();
-        //assign value from the form to $user
         $peminjaman->userId = $this->request->getPost('userId');
         $peminjaman->bukuId = $this->request->getPost('bukuId');
-        $peminjaman->tglPeminjaman = $this->request->getPost('penulis');
-        $peminjaman->tglHarusKembali = $this->request->getPost('genre');
-
+        $tanggal = time();
+        $tanggal2 = time() + (86400 * $this->request->getPost('lamaPinjam'));
+        $peminjaman->tglPeminjaman = date('Y-m-d', time());
+        $peminjaman->tglHarusKembali = date('Y-m-d', time() + (86400*3));        
         $success = $peminjaman->save();
-
-        // passing the result to the view
         $this->view->success = $success;
 
         if ($success) {
@@ -136,8 +134,6 @@ class AdminController extends ControllerBase
             $message = "Sorry, the following problems were generated:<br>"
                      . implode('<br>', $peminjaman->getMessages());
         }
-
-        // passing a message to the view
         $this->view->message = $message;
         return $this->response->redirect('/admin/peminjaman');
     }

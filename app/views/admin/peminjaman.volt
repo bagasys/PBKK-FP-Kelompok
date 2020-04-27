@@ -52,7 +52,7 @@
             <label for="userId">id user</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="tglPeminjaman" type="text" class="datepicker" name="tglPeminjaman" placeholder="Tanggal Pinjam" required>
+            <input type="date" id="tglPeminjaman" name="tglPeminjaman" required>
             <label for="tglPeminjaman"></label>
           </div>
           <div class="input-field col s12 m6">
