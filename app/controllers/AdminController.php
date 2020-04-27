@@ -138,4 +138,10 @@ class AdminController extends ControllerBase
         return $this->response->redirect('/admin/peminjaman');
     }
 
+    public function updatePeminjamanAction(){
+        $peminjamanId = $this->dispatcher->getParam(0);
+        $peminjaman = Peminjamans::findFirst($peminjamanId);
+        $this->view->peminjaman = $peminjaman;
+    }
+
 }
