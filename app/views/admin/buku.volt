@@ -48,31 +48,31 @@
     <div class="container-admin">
       <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
             <label for="isbn">ISBN</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="judul" type="text" class="validate" name="judul" placeholder="Ex: Sophie's World" required>
             <label for="judul">Judul</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="penulis" type="text" class="validate" name="penulis" placeholder="Ex: J. K. Rowling" required>
             <label for="penulis">Penulis</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="genre" type="text" class="validate" name="genre" placeholder="Pendidikan, Novel"required>
             <label for="genre">Genre</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="penerbit" type="text" class="validate" name="penerbit" placeholder="Ex: Mizan" required>
             <label for="penerbit">Penerbit</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="jumlah" type="number" class="validate" name="jumlah" placeholder="1" required>
             <label for="jumlah">jumlah</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="dendaPerHari" type="number" class="validate" name="dendaPerHari" required placeholder="3000">
             <label for="dendaPerHari">Denda Per Hari</label>
           </div>
