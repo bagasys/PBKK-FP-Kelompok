@@ -37,7 +37,7 @@
                 <td>{{book.judul}}</td>
                 <td>
                     <a href="#"><i class="material-icons prefix">search</i></a>
-                    <a href="{{ url('admin/updateBuku/{{book.bukuId}}') }}" ><i class="material-icons prefix">edit</i></a>
+                    <a href="/admin/updateBuku/{{book.bukuId}}" ><i class="material-icons prefix">edit</i></a>
                 </td>
             </tr>
       {% endfor %}
