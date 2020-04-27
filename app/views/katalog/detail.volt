@@ -9,8 +9,8 @@
         </div>
         <div class="">
           <form action="{{url('wishlist/create')}}" method="post">
-            <input class="" type="number" name="userId" value="{{session.auth['userId']}}">
-            <input class="" type="number" name="bukuId" value="{{buku.bukuId}}">
+            <input class="hide" type="number" name="userId" value="{{session.auth['userId']}}">
+            <input class="hide" type="number" name="bukuId" value="{{buku.bukuId}}">
             <button class="btn waves-effect waves-light" type="submit" style="width: 180px;" name="action">
               <i class="material-icons left">add</i> Wishlist
             </button>
