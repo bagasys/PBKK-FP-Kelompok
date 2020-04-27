@@ -21,35 +21,35 @@
       <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
+            <input id="isbn" type="text" class="validate" name="isbn" value="{{ buku.isbn }}" required>
             <label for="isbn">ISBN</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="judul" type="text" class="validate" name="judul" placeholder="Ex: Sophie's World" required>
+            <input id="judul" type="text" class="validate" name="judul" value="{{ buku.judul }}" required>
             <label for="judul">Judul</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="penulis" type="text" class="validate" name="penulis" placeholder="Ex: J. K. Rowling" required>
+            <input id="penulis" type="text" class="validate" name="penulis" value="{{ buku.penulis }}" required>
             <label for="penulis">Penulis</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="genre" type="text" class="validate" name="genre" placeholder="Pendidikan, Novel"required>
+            <input id="genre" type="text" class="validate" name="genre" value="{{ buku.genre }}" required>
             <label for="genre">Genre</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="penerbit" type="text" class="validate" name="penerbit" placeholder="Ex: Mizan" required>
+            <input id="penerbit" type="text" class="validate" name="penerbit" value="{{ buku.penerbit }}" required>
             <label for="penerbit">Penerbit</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="jumlah" type="number" class="validate" name="jumlah" placeholder="1" required>
+            <input id="jumlah" type="number" class="validate" name="jumlah" value="{{ buku.jumlah }}" required>
             <label for="jumlah">jumlah</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="dendaPerHari" type="number" class="validate" name="dendaPerHari" required placeholder="3000">
+            <input id="dendaPerHari" type="number" class="validate" name="dendaPerHari" value="{{ buku.dendaPerHari }}"required>
             <label for="dendaPerHari">Denda Per Hari</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="deskripsi" class="materialize-textarea" data-length="120" name="deskripsi" placeholder="Ex: Novel ini bercerita tentang kehidupan 10 anak..."></textarea>
+            <textarea id="deskripsi" class="materialize-textarea" data-length="120" name="deskripsi" value="{{ buku.deskripsi }}"></textarea>
             <label for="deskripsi">Deskripsi</label>
           </div>
           <div class="input-field col s12">
@@ -59,7 +59,7 @@
                 <input type="file" name="gambar">
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+                <input class="file-path validate" type="text" >
               </div>
             </div>
           </div>

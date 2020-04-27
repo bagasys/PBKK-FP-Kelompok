@@ -9,7 +9,8 @@ class AdminController extends ControllerBase
 
     public function indexAction()
     {
-       
+        $books = Books::find();
+        $this->view->books = $books;
     }
     
     public function bukuAction()
@@ -20,7 +21,7 @@ class AdminController extends ControllerBase
         
     }
 
-    public function tambahAction()
+    public function createBukuAction()
     {
         $book = new Books();
 
@@ -64,12 +65,15 @@ class AdminController extends ControllerBase
         $this->view->message = $message;
     }
     
-    public function peminjamanAction()
+    public function updateBukuAction()
     {
-       
+        $bukuId = $this->dispatcher->getParam(3);
+
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+        $this->view->buku = $buku;
     }
-    
-    public function editbukuAction()
+
+    public function peminjamanAction()
     {
        
     }

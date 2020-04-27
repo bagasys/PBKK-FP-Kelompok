@@ -29,7 +29,7 @@
 
 
 
-    <h4>Daftar Buku</h4>
+<h4>Daftar Buku</h4>
 <table id="table_id" class="display">
     <thead>
         <tr>
@@ -39,19 +39,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>123</td>
-            <td>Bukuku</td>
-            <td>
-                <a href="#"><i class="material-icons prefix">search</i></a>
-                <a href="#"><i class="material-icons prefix">edit</i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>321</td>
-            <td>Bukumu</td>
-            <td><a href="#"><i class="material-icons prefix">search</i></a></td>
-        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{book.isbn}}</td>
+                <td>{{book.judul}}</td>
+                <td>
+                    <a href="#"><i class="material-icons prefix">search</i></a>
+                    <a href="{{ url('admin/updateBuku/1') }}"><i class="material-icons prefix">edit</i></a>
+                </td>
+            </tr>
+      {% endfor %}
     </tbody>
 </table>
 </div>

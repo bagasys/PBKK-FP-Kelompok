@@ -26,19 +26,18 @@
       </tr>
     </thead>
     <tbody>
+      <!-- ------------------------------------------------ -->
+      {% for book in books %}
       <tr>
-          <td>123</td>
-          <td>Bukuku</td>
+          <td>{{book.isbn}}</td>
+          <td>{{book.judul}}</td>
           <td>
               <a href="#"><i class="material-icons prefix">search</i></a>
               <a href="{{ url('admin/editbuku/1') }}"><i class="material-icons prefix">edit</i></a>
           </td>
       </tr>
-      <tr>
-          <td>321</td>
-          <td>Bukumu</td>
-          <td><a href="#"><i class="material-icons prefix">search</i></a></td>
-      </tr>
+      {% endfor %}
+      <!-- ------------------------------------------------- -->
     </tbody>
   </table>
   </div>
@@ -46,7 +45,7 @@
 
   <div id="tambah-buku" class="col s12">
     <div class="container-admin">
-      <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
+      <form action="{{ url('admin/create') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
