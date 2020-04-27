@@ -21,6 +21,10 @@
       <form action="{{ url('admin/updateBuku') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
           <div class="input-field col s12 m6">
+            <input id="isbn" type="text" class="validate" name="bukuId" value="{{ buku.bukuId }}" required>
+            <label for="isbn">ID</label>
+          </div>
+          <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" value="{{ buku.isbn }}" required>
             <label for="isbn">ISBN</label>
           </div>

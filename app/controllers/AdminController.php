@@ -13,6 +13,11 @@ class AdminController extends ControllerBase
         $this->view->books = $books;
     }
 
+    public function bukuAction(){
+        $books = Books::find();
+        $this->view->books = $books;
+    }
+
     public function createBukuAction()
     {
         $book = new Books();
@@ -66,13 +71,10 @@ class AdminController extends ControllerBase
     
     public function updateBukuAction()
     {
-        $bukuId = $this->dispatcher->getParam(0);
-        $buku = Books::findFirst("bukuId = '$bukuId'");
-
         if ($this->request->isPost()) {
-            $buku = new Books();
-
+            $bukuId = $this->request->getPost('bukuId');
             //assign value from the form to $user
+            $buku = Books::findFirst("bukuId = '$bukuId'");
             $buku->isbn = $this->request->getPost('isbn');
             $buku->judul = $this->request->getPost('judul');
             $buku->penulis = $this->request->getPost('penulis');
@@ -89,9 +91,16 @@ class AdminController extends ControllerBase
             }
             $buku->gambar = $path;
             $buku->save();
-        }
+            $this->view->buku = $buku;
 
-        $this->view->buku = $buku;
+        }else{
+            $bukuId = $this->dispatcher->getParam(0);
+            $buku = Books::findFirst("bukuId = '$bukuId'");
+            $this->view->buku = $buku;
+    }
+        
+
+        
     }
 
     public function deleteBukuAction()
