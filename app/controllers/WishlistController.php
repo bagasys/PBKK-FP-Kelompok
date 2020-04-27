@@ -15,10 +15,17 @@ class WishlistController extends ControllerBase
     public function createAction()
     {
         if ($this->request->isPost()) {
-            $wishlist = new Wishlists();
-            $wishlist->userId = $this->request->getPost('userId');
-            $wishlist->bukuId = $this->request->getPost('bukuId');
-            $wishlist->save();
+            $bukuId = $this->request->getPost('bukuId');
+            if($bukuId){
+                $wishlist = new Wishlists();
+                $wishlist->userId = $this->session->get('auth')['userId'];
+                $wishlist->bukuId = $bukuId;
+                $wishlist->save();
+                echo 'kwkw';
+            }else{
+                echo ':(';
+            }
+           
         }
     }
 
@@ -27,8 +34,6 @@ class WishlistController extends ControllerBase
         if ($this->request->isPost()) {
             $wishlistId = $this->request->getPost('wishlistId');
             $userId = $this->request->getPost('userId');
-
-            
             $wishlist = Books::findFirst($wishlistId);
             $buku->delete();
             return $this->response->redirect('/profile');

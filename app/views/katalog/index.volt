@@ -18,22 +18,22 @@
 		</div>
 	</div>
 	
-	{% for product in page.items %}
+	{% for product in books %}
 	<div class="row">
 	<div class="col s4">
 		<div class="row">
 			<div class="col s12">
 				<div class="card hoverable z-depth-2">
 					<div class="card-image grey " >
-						<img class="z-depth-4" src="/public/{{book.gambar}}"style="height: 165px; width:120px; margin:auto;" alt="" srcset="">
+						<img class="z-depth-4" src="/public/{{product.gambar}}"style="height: 165px; width:120px; margin:auto;" alt="" srcset="">
 					</div>
 					<div class="card-content">
-						<h6>{{book.judul}}</h6>
-						<p>{{book.penulis}}</p>
-						<p class="truncate">{{book.deskripsi}}</p>
+						<h6>{{product.judul}}</h6>
+						<p>{{product.penulis}}</p>
+						<p class="truncate">{{product.deskripsi}}</p>
 					</div>
 					<div class="card-action">
-						<a href="/katalog/detail/{{book.bukuId}}">Detail Buku</a>
+						<a href="/katalog/detail/{{product.bukuId}}">Detail Buku</a>
 					</div>
 				</div>
 			</div>
