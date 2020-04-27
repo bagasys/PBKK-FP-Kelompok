@@ -9,8 +9,6 @@ class AdminController extends ControllerBase
 
     public function indexAction()
     {
-        $books = Books::find();
-        $this->view->books = $books;
     }
 
     public function bukuAction(){
