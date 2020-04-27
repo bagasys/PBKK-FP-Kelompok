@@ -60,5 +60,15 @@ class AdminController extends ControllerBase
         // passing a message to the view
         $this->view->message = $message;
     }
+    
+    public function peminjamanAction()
+    {
+       
+    }
+    
+    public function editbukuAction()
+    {
+       
+    }
 
 }
