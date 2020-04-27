@@ -108,6 +108,10 @@ class AdminController extends ControllerBase
     public function deleteBukuAction()
     {
         $bukuId = $this->dispatcher->getParam(0);
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+
+        $buku->delete();
+        return $this->response->redirect('/admin');
     }
 
     public function peminjamanAction()
