@@ -31,7 +31,7 @@
           <td>{{book.isbn}}</td>
           <td>{{book.judul}}</td>
           <td>
-              <a href="#"><i class="material-icons prefix">search</i></a>
+              <a href="/admin/readbuku/{{book.bukuId}}"><i class="material-icons prefix">search</i></a>
               <a href="/admin/updatebuku/{{book.bukuId}}"><i class="material-icons prefix">edit</i></a>
               <a href="/admin/deletebuku/{{book.bukuId}}"><i class="material-icons prefix">delete</i></a>
           </td>
@@ -42,7 +42,7 @@
   </div>
   <div id="tambah-buku" class="col s12">
     <div class="container-admin">
-      <form action="{{ url('admin/create') }}" method="post" enctype='multipart/form-data'>
+      <form action="{{ url('admin/createbuku') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
