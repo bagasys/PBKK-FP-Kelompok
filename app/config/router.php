@@ -40,10 +40,10 @@ $router->add('/:controller/:action/:params', [
     'params' =>  3,
 ]);
 
-// $router->notFound([
-//     'namespace' => 'App\Controllers',
-//     'controller' => 'error',
-//     'action' => 'notFound',
-// ]);
+$router->notFound([
+    'namespace' => 'App\Controllers',
+    'controller' => 'error',
+    'action' => 'notFound',
+]);
 
 $router->handle($di->get('request_uri'));

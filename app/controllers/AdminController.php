@@ -36,11 +36,6 @@ class AdminController extends ControllerBase
         if ($this->request->hasFiles(true)) {
             $gambar = $this->request->getUploadedFiles()[0];
             $gambar->moveTo($path);
-            $this->view->cek = "Hiiiiiiiiiii";
-        }
-        else
-        {
-            $this->view->cek = "HHHHHHHHHHHH";
         }
         
         $book->gambar = $path;
