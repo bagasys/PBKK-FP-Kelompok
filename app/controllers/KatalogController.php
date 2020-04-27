@@ -13,20 +13,24 @@ class KatalogController extends ControllerBase
         $books = Books::find();
         $this->view->books = $books;
         
-        $currentPage = 1;
+        $currentPage = (int) $_GET['page'];
+        if ($currentPage == 0)
+        {
+            $currentPage = 1;
+        }
 
-        $bukus = $books->toArray();
-
+        $books = $books->toArray();
         $paginator = new PaginatorArray(
             [
-                'data'  => $bukus,
-                'limit' => 2,
-                'page'  => 1,
+                'data'  => $books,
+                'limit' => 5,
+                'page'  => $currentPage,
             ]
         );
         
         $page = $paginator->paginate();
         $this->view->page = $page;
+        $this->view->num = $currentPage;
     }
 
     public function detailAction()
