@@ -65,6 +65,9 @@
           $(document).ready(function(){
             $('.tabs').tabs();
           });
+          $(document).ready(function(){
+            $('.datepicker').datepicker();
+          });
        </script>
     </body>
 </html>

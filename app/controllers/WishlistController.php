@@ -25,7 +25,6 @@ class WishlistController extends ControllerBase
             }else{
                 echo ':(';
             }
-           
         }
     }
 
