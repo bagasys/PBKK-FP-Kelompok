@@ -8,55 +8,53 @@
           <li>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           </li>
-          <li class="tab col s6"><a href="#peminjaman-aktif">Daftar Peminjaman</a></li>
+          <li class="tab col s6"><a href="#peminjaman">Peminjaman</a></li>
           <li class="tab col s6"><a href="#tambah-peminjaman">Tambah Peminjaman</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container-admin">
-  <div id="peminjaman-aktif">
-    <h4>Peminjaman Aktif</h4>
-    <table id="table_id" class="display">
-      <thead>
-        <tr>
-          <t  h>ISBN</th>
-          <th>Judul Buku</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>123</td>
-            <td>Bukuku</td>
-            <td>
-                <a href="#"><i class="material-icons prefix">search</i></a>
-                <a href="#"><i class="material-icons prefix">edit</i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>321</td>
-            <td>Bukumu</td>
-            <td><a href="#"><i class="material-icons prefix">search</i></a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="peminjaman">
+      <h4>Daftar Peminjaman</h4>
+  <table id="table_id" class="display">
+    <thead>
+      <tr>
+        <th>ISBN</th>
+        <th>Judul Buku</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>123</td>
+          <td>Bukuku</td>
+          <td>
+              <a href="#"><i class="material-icons prefix">search</i></a>
+              <a href="{{ url('admin/editbuku/1') }}"><i class="material-icons prefix">edit</i></a>
+          </td>
+      </tr>
+      <tr>
+          <td>321</td>
+          <td>Bukumu</td>
+          <td><a href="#"><i class="material-icons prefix">search</i></a></td>
+      </tr>
+    </tbody>
+  </table>
   </div>
-
-  
 
 
   <div id="tambah-peminjaman" class="col s12">
     <div class="container-admin">
       <form action="{{ url('admin/tambah') }}" method="post" enctype='multipart/form-data'>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
             <label for="isbn">ISBN</label>
           </div>
-          <div class="input-field col s6">
-            <input id="user_id" type="text" class="validate" name="user_id" placeholder="Ex: 123" required>
-            <label for="user_id">ID Anggota</label>
+          <div class="input-field col s12 m6">
+            <input id="judul" type="text" class="validate" name="judul" placeholder="Ex: Sophie's World" required>
+            <label for="judul">Judul</label>
           </div>
         </div>
         <div class="row">

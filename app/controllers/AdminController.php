@@ -16,6 +16,9 @@ class AdminController extends ControllerBase
     {
        
     }
+    public function detailbukuAction(){
+        
+    }
 
     public function tambahAction()
     {

@@ -8,40 +8,12 @@
           <li>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           </li>
-          <li class="tab col s6"><a href="#daftar-buku">Daftar Buku</a></li>
-          <li class="tab col s6"><a href="#tambah-buku">Tambah Buku</a></li>
+          <li class="tab col s12"><a href="#tambah-buku">Detail Buku</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container-admin">
-    <div id="daftar-buku">
-      <h4>Daftar Buku</h4>
-  <table id="table_id" class="display">
-    <thead>
-      <tr>
-        <th>ISBN</th>
-        <th>Judul Buku</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <td>123</td>
-          <td>Bukuku</td>
-          <td>
-              <a href="#"><i class="material-icons prefix">search</i></a>
-              <a href="{{ url('admin/editbuku/1') }}"><i class="material-icons prefix">edit</i></a>
-          </td>
-      </tr>
-      <tr>
-          <td>321</td>
-          <td>Bukumu</td>
-          <td><a href="#"><i class="material-icons prefix">search</i></a></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
 
 
   <div id="tambah-buku" class="col s12">
