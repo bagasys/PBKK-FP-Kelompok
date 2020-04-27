@@ -5,36 +5,52 @@
     <div class="row card-panel">
       <div class="col s6 m4">
         <div class="">
-          <img src="https://source.unsplash.com/random/180x288"style="height: 288px; width:180px;" alt="" srcset="">
+          <img src="/public/{{buku.gambar}}"style="height: 288px; width:180px;" alt="" srcset="">
         </div>
         <div class="">
-          <a class="waves-effect waves-light btn" style="width: 180px;">+ Wishlist</a>
-        </div>
+          <form action="/wishlist/create" method="post">
+            <input class="" type="number" disabled name="userId" value="{{session.auth['userId']}}">
+            <input class="" type="number" disabled name="bukuId" value="{{buku.bukuId}}">
+            <button class="btn waves-effect waves-light" type="submit" style="width: 180px;" name="action">
+              <i class="material-icons left">add</i> Wishlist
+            </button>
+          </form>
+                  </div>
       </div>
       <div class="col s6 m8">
-        <h4>Judul Buku</h4>
-        <p>Penulis</p>
-        <p>Deskripsi</p>
+        <h4>{{buku.judul}}</h4>
+        <p>{{buku.penulis}}</p>
+        <p>{{buku.deskripsi}}</p>
       </div>
     </div>
     <div class="row card-panel">
-      <div class="col s12">
+      <div class="col s12 m6">
         <h4>Detail</h4>
             <table>
-        
                 <tbody>
                   <tr>
                     <th>Judul</th>
-                    <td>Bukuku</td>
-
+                    <td>{{buku.judul}}</td>
                   </tr>
                   <tr>
                     <th>Penulis</th>
-                    <td>Penulisku</td>
+                    <td>{{buku.penulis}}</td>
                   </tr>
                   <tr>
                     <th>Penerbit</th>
-                    <td>Penerbitku</td>
+                    <td>{{buku.penerbit}}</td>
+                  </tr>
+                  <tr>
+                    <th>Genre</th>
+                    <td>{{buku.genre}}</td>
+                  </tr>
+                  <tr>
+                    <th>Jumlah</th>
+                    <td>{{buku.jumlah}}</td>
+                  </tr>
+                  <tr>
+                    <th>Tersedia</th>
+                    <td>{{buku.jumlah - buku.jumlahKeluar }}</td>
                   </tr>
                 </tbody>
               </table>
