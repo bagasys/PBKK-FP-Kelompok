@@ -70,8 +70,6 @@ class AdminController extends ControllerBase
         $buku = Books::findFirst("bukuId = '$bukuId'");
 
         if ($this->request->isPost()) {
-            $buku = new Books();
-
             //assign value from the form to $user
             $buku->isbn = $this->request->getPost('isbn');
             $buku->judul = $this->request->getPost('judul');
@@ -87,6 +85,7 @@ class AdminController extends ControllerBase
                 $gambar = $this->request->getUploadedFiles()[0];
                 $gambar->moveTo($path);
             }
+            
             $buku->gambar = $path;
             $buku->save();
         }
