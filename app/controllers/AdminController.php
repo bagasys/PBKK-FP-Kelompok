@@ -77,8 +77,9 @@ class AdminController extends ControllerBase
 
     public function updateBukuAction()
     {
-        $buku = Books::findFirst($bukuId);
-        
+        $bukuId = $this->dispatcher->getParam(0);
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+
         if ($this->request->isPost()) {
             //assign value from the form to $user
             $buku = Books::findFirst($bukuId);
@@ -100,7 +101,8 @@ class AdminController extends ControllerBase
             $buku->gambar = $path;
             $buku->save();
         }
-        
+
+        $this->view->buku = $buku;
     }
 
     public function deleteBukuAction()
