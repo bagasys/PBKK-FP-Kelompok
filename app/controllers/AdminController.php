@@ -69,12 +69,18 @@ class AdminController extends ControllerBase
         $this->view->buku = $buku;
     }
     
+    public function editBukuAction(){
+        $bukuId = $this->dispatcher->getParam(0);
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+        $this->view->buku = $buku;
+    }
+
     public function updateBukuAction()
     {
         if ($this->request->isPost()) {
             $bukuId = $this->request->getPost('bukuId');
             //assign value from the form to $user
-            $buku = Books::findFirst("bukuId = '$bukuId'");
+            $buku = Books::findFirst($bukuId);
             $buku->isbn = $this->request->getPost('isbn');
             $buku->judul = $this->request->getPost('judul');
             $buku->penulis = $this->request->getPost('penulis');
@@ -84,19 +90,24 @@ class AdminController extends ControllerBase
             $buku->jumlah = $this->request->getPost('jumlah');
             $buku->dendaPerHari = $this->request->getPost('dendaPerHari');
 
-            $path ='books/'.$buku->isbn.'.jpg';
-            if ($this->request->hasFiles(true)) {
-                $gambar = $this->request->getUploadedFiles()[0];
-                $gambar->moveTo($path);
-            }
+            // $path ='books/'.$buku->isbn.'.jpg';
+            // if ($this->request->hasFiles(true)) {
+            //     $gambar = $this->request->getUploadedFiles()[0];
+            //     $gambar->moveTo($path);
+            // }
             $buku->gambar = $path;
-            $buku->save();
-            $this->view->buku = $buku;
+            if ($buku->save() === false) {
+                $messages = $buku->getMessages();
+                foreach ($messages as $message) {
+                    echo $message, "\n";
+                }
+            } else {
+                echo 'Great, ';
+            }
+            
 
         }else{
-            $bukuId = $this->dispatcher->getParam(0);
-            $buku = Books::findFirst("bukuId = '$bukuId'");
-            $this->view->buku = $buku;
+            
     }
         
 
