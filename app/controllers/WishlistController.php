@@ -15,10 +15,14 @@ class WishlistController extends ControllerBase
     public function createAction()
     {
         if ($this->request->isPost()) {
+            $user = $this->session->get('auth');
+
             $wishlist = new Wishlists();
-            $wishlist->userId = $this->request->getPost('userId');
-            $wishlist->bukuId = $this->request->getPost('bukuId');
+            $wishlist->userId = 1;
+            $wishlist->bukuId = 2;
             $wishlist->save();
+
+            $this->view->userId =  $user->userId;
         }
     }
 

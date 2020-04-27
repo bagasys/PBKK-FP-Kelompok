@@ -7,33 +7,29 @@
 	<div class="row">
 		<div class="col s12 m6">
 			<ul class="pagination">
-				<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-				<li class="active"><a href="#!">1</a></li>
-				<li class="waves-effect "><a href="#!">2</a></li>
-				<li class="waves-effect"><a href="#!">3</a></li>
-				<li class="waves-effect"><a href="#!">4</a></li>
-				<li class="waves-effect"><a href="#!">5</a></li>
-				<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+				<li class="disabled"><a href="katalog?page={{ page.previous }}"><i class="material-icons">chevron_left</i></a></li>
+				<li class="active"><a href="katalog">{{num}}</a></li>
+				<li class="waves-effect"><a href="katalog?page={{ page.next }}"><i class="material-icons">chevron_right</i></a></li>
 			</ul>
 		</div>
 	</div>
 	
-	{% for product in page.items %}
+	{% for book in page.items %}
 	<div class="row">
 	<div class="col s4">
 		<div class="row">
 			<div class="col s12">
 				<div class="card hoverable z-depth-2">
 					<div class="card-image grey " >
-						<img class="z-depth-4" src="/public/{{book.gambar}}"style="height: 165px; width:120px; margin:auto;" alt="" srcset="">
+						<img class="z-depth-4" src="/public/{{book['gambar']}}"style="height: 165px; width:120px; margin:auto;" alt="" srcset="">
 					</div>
 					<div class="card-content">
-						<h6>{{book.judul}}</h6>
-						<p>{{book.penulis}}</p>
-						<p class="truncate">{{book.deskripsi}}</p>
+						<h6>{{book['judul']}}</h6>
+						<p>{{book['penulis']}}</p>
+						<p class="truncate">{{book['deskripsi']}}</p>
 					</div>
 					<div class="card-action">
-						<a href="/katalog/detail/{{book.bukuId}}">Detail Buku</a>
+						<a href="/katalog/detail/{{book['bukuId']}}">Detail Buku</a>
 					</div>
 				</div>
 			</div>
