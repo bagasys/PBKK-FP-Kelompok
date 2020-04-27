@@ -26,11 +26,10 @@
             <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
           </ul>
       </header>
-      <main>
         {% block content %} 
         
         {% endblock %}
-      </main>
+
           
       
         
