@@ -37,7 +37,6 @@ class KatalogController extends ControllerBase
     {
         $bukuId = $this->dispatcher->getParam(0);
         $buku = Books::findFirst("bukuId = '$bukuId'");
-
         $this->view->buku = $buku;
     }
 
