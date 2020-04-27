@@ -110,7 +110,7 @@ class AdminController extends ControllerBase
         $buku = Books::findFirst("bukuId = '$bukuId'");
 
         $buku->delete();
-        return $this->response->redirect('/admin');
+        return $this->response->redirect('/admin/buku');
     }
 
     public function peminjamanAction()

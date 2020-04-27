@@ -8,8 +8,14 @@
           <img src="/public/{{buku.gambar}}"style="height: 288px; width:180px;" alt="" srcset="">
         </div>
         <div class="">
-          <a class="waves-effect waves-light btn" style="width: 180px;">+ Wishlist</a>
-        </div>
+          <form action="/wishlist/create" method="post">
+            <input class="" type="number" disabled name="userId" value="{{session.auth['userId']}}">
+            <input class="" type="number" disabled name="bukuId" value="{{buku.bukuId}}">
+            <button class="btn waves-effect waves-light" type="submit" style="width: 180px;" name="action">
+              <i class="material-icons left">add</i> Wishlist
+            </button>
+          </form>
+                  </div>
       </div>
       <div class="col s6 m8">
         <h4>{{buku.judul}}</h4>
