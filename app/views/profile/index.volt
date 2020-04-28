@@ -52,14 +52,16 @@
         <h4>Wish List</h4>
         <ul class="collection">
           
-          {% for book in books %}
+          {% for arr in arrs %}
             <li class="collection-item avatar">
                 <i class="material-icons circle">folder</i>
-                <span class="title">{{book.judul}}</span>
+                <span class="title">{{arr[0].judul}}</span>
               <p>Deskripsi :
-                {{ book.deskripsi }}
+                {{ arr[0].deskripsi }}
               </p>
-              <div class="secondary-content black-text">3 hari lagi</div>
+              <div class="secondary-content black-text">
+                <a href="/profile/deleteWishlist/{{arr[1].wishlistId}}"><i class="material-icons prefix">delete</i></a>
+              </div>
               <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i> </a> -->
             </li>
           {% endfor %}

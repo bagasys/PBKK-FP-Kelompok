@@ -13,17 +13,26 @@ class ProfileController extends ControllerBase
         $user = $this->session->get('auth');
         $id = $user['userId'];
 
-        $books = array();
+        $arrs = array();
         $wishlists = Wishlists::find("userId = '$id'");
-        
         foreach ( $wishlists as $wishlist)
         {
-            $tmp = Books::findfirst("bukuId = '$wishlist->bukuId'");
-            array_push($books, $tmp);
+            $book = Books::findfirst("bukuId = '$wishlist->bukuId'");
+            $arr = array();
+            array_push($arr, $book, $wishlist);
+            array_push($arrs, $arr);
         }
 
-        $this->view->books = $books;
-        
+        $this->view->arrs = $arrs;
+    }
+    
+    public function deleteWishlistAction()
+    {
+        $wishlistId = $this->dispatcher->getParam(0);
+        $wishlist = Wishlists::findFirst("wishlistId = '$wishlistId'");
+
+        $wishlist->delete();
+        return $this->response->redirect('/profile');
     }
 
 }
