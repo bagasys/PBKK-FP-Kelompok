@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 use App\Models\Wishlists;
+use App\Models\Peminjamans;
 use App\Models\Books;
 
 class ProfileController extends ControllerBase
@@ -23,6 +24,21 @@ class ProfileController extends ControllerBase
             array_push($arrs, $arr);
         }
 
+        $username = $this->session->get('auth')['username'];
+        // $peminjamans = peminjamans::find("username = '$username'");
+        $peminjamans = peminjamans::find([
+            ['username' => 'test'],
+            
+        ]);
+        $arrs2 = array();
+        foreach ( $peminjamans as $peminjaman)
+        {
+            $book = Books::findfirst("isbn = '$peminjaman->isbn'");
+            $arr2 = array();
+            array_push($arr2, $book, $peminjaman);
+            array_push($arrs2, $arr2);
+        }
+        $this->view->peminjamans = $arrs2;
         $this->view->arrs = $arrs;
     }
     
