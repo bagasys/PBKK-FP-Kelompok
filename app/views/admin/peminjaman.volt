@@ -20,16 +20,18 @@
   <table id="table_id" class="display">
     <thead>
       <tr>
-        <th>id buku</th>
-        <th>id user</th>
+        <th>ISBN</th>
+        <th>username</th>
+        <th>aksi</th>
         <th>aksi</th>
       </tr>
     </thead>
     <tbody>
       {%for peminjaman in peminjamans%}
       <tr>
-          <td>{{peminjaman.bukuId}}</td>
-          <td>{{peminjaman.userId}}</td>
+          <td>{{peminjaman.isbn}}</td>
+          <td>{{peminjaman.username}}</td>
+          <td>{{peminjaman.tglKembali}}</td>
           <td>
               <!-- <a href="/admin/readbuku/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">search</i></a> -->
               <a href="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">edit</i></a>
@@ -47,12 +49,12 @@
       <form action="{{ url('admin/createPeminjaman') }}" method="post">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="bukuId" type="text" class="validate" name="bukuId" placeholder="Ex: 978-0-262-03384-8" required>
-            <label for="bukuId">id buku</label>
+            <input id="isbn" type="text" class="validate" name="isbn" placeholder="Ex: 978-0-262-03384-8" required>
+            <label for="isbn">ISBN</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="userId" type="text" class="validate" name="userId" placeholder="Ex: Sophie's World" required>
-            <label for="userId">id user</label>
+            <input id="username" type="text" class="validate" name="username" placeholder="Ex: Sophie's World" required>
+            <label for="username">username</label>
           </div>
           <div class="input-field col s12 m6">
             <input id="lamaPinjam" type="number" class="validate" name="lamaPinjam" placeholder="3" required>

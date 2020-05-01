@@ -119,8 +119,8 @@ class AdminController extends ControllerBase
     public function createPeminjamanAction()
     {
         $peminjaman = new Peminjamans();
-        $peminjaman->userId = $this->request->getPost('userId');
-        $peminjaman->bukuId = $this->request->getPost('bukuId');
+        $peminjaman->username = $this->request->getPost('username');
+        $peminjaman->isbn = $this->request->getPost('isbn');
         $tanggal = time();
         $tanggal2 = time() + (86400 * $this->request->getPost('lamaPinjam'));
         $peminjaman->tglPeminjaman = date('Y-m-d', time());
@@ -141,7 +141,30 @@ class AdminController extends ControllerBase
     public function updatePeminjamanAction(){
         $peminjamanId = $this->dispatcher->getParam(0);
         $peminjaman = Peminjamans::findFirst($peminjamanId);
+        if ($this->request->isPost()){
+            $peminjaman->tglKembali = date('Y-m-d', time());
+            $success = $peminjaman->save();
+            $this->view->success = $success;
+
+            if ($success) {
+                $message = "Thanks for registering!";
+            } else {
+                $message = "Sorry, the following problems were generated:<br>"
+                        . implode('<br>', $peminjaman->getMessages());
+            }
+            $this->view->message = $message;
+            return $this->response->redirect('/admin/peminjaman');
+        }
+       
+        $tglHarusKembali = date_create($peminjaman->tglHarusKembali);
+        $tglKembali = date_create(date('Y-m-d', time()));
+        $diff = date_diff($tglKembali, $tglHarusKembali);
+        $hariTerlambat=0;
+        if($diff->format("%R") == '-'){
+            $hariTerlambat=$diff->format("%a");
+        }
         $this->view->peminjaman = $peminjaman;
+        $this->view->hariTerlambat = $hariTerlambat;
     }
 
 }
