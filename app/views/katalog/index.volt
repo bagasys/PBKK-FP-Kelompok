@@ -24,9 +24,8 @@
 						<img class="z-depth-4" src="/public/{{book['gambar']}}"style="height: 165px; width:120px; margin:auto;" alt="" srcset="">
 					</div>
 					<div class="card-content">
-						<h6>{{book['judul']}}</h6>
-						<p>{{book['penulis']}}</p>
-						<p class="truncate">{{book['deskripsi']}}</p>
+						<h6 class="truncate">{{book['judul']}}</h6>
+						<p class="truncate"><small>{{book['penulis']}}</small></p>
 					</div>
 					<div class="card-action">
 						<a href="/katalog/detail/{{book['bukuId']}}">Detail Buku</a>

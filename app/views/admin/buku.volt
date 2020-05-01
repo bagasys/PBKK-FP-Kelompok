@@ -34,6 +34,11 @@
               <a href="/admin/readbuku/{{book.bukuId}}"><i class="material-icons prefix">search</i></a>
               <a href="/admin/updatebuku/{{book.bukuId}}"><i class="material-icons prefix">edit</i></a>
               <a href="/admin/deletebuku/{{book.bukuId}}"><i class="material-icons prefix">delete</i></a>
+              {% if book.status %}
+                <a href="/admin/setbuku/{{book.bukuId}}"><i class="material-icons prefix">check_circle</i></a>
+              {% else %}
+                <a href="/admin/setbuku/{{book.bukuId}}"><i class="material-icons prefix">check_circle_outline</i></a>
+              {% endif %}
           </td>
       </tr> 
       {% endfor %}
