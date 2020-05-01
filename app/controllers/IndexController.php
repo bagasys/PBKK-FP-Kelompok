@@ -11,19 +11,15 @@ class IndexController extends ControllerBase
        // Check if the variable is defined
        if ($this->session->has('auth')) {
         // Retrieve its value
-        $user = $this->session->get('auth');
+            $user = $this->session->get('auth');
         }
         
-        if($user)
-        {
+        if($user){
             $this->view->nama = $user['nama'];
         }
-        else
-        {
-            // redirect to login
+        else{
+            
         }
-
-
     }
 
 }

@@ -19,9 +19,9 @@
             <ul class="right hide-on-med-and-down">
               <li><a class="" href="/katalog">Katalog</a></li>
               {% if session.get('auth') == null %} {# variable is not set #}
-              <li><a class="modal-trigger" href="#modal-login">Login</a></li>
+                <li><a class="modal-trigger" href="#modal-login">Login</a></li>
               {% else %} {# variable is set #}
-              <li><a class="" href="{{ url('logout') }}">Logout</a></li>
+                <li><a class="" href="{{ url('user/logout') }}">Logout</a></li>
               {% endif %}
             </ul>
           </div>
@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <form action="/login" method="post">
+          <form action="/user/login" method="post">
 
             <div class="row">
               <div class="input-field col s12">
@@ -111,7 +111,7 @@
             </div>
             <div class="footer-copyright">
               <div class="container">
-              Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+              Made by <a class="brown-text text-lighten-3">Me</a>
               </div>
             </div>
           </footer>

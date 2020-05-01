@@ -47,7 +47,7 @@
             <label for="dendaPerHari">Denda Per Hari</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="deskripsi" class="materialize-textarea" data-length="120" name="deskripsi" value="{{ buku.deskripsi }}"></textarea>
+            <textarea id="deskripsi" class="materialize-textarea" data-length="120" name="deskripsi">{{ buku.deskripsi }}</textarea>
             <label for="deskripsi">Deskripsi</label>
           </div>
 

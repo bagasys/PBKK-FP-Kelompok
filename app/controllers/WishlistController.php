@@ -21,9 +21,6 @@ class WishlistController extends ControllerBase
                 $wishlist->userId = $this->session->get('auth')['userId'];
                 $wishlist->bukuId = $bukuId;
                 $wishlist->save();
-                echo 'kwkw';
-            }else{
-                echo ':(';
             }
         }
     }
@@ -33,8 +30,9 @@ class WishlistController extends ControllerBase
         if ($this->request->isPost()) {
             $wishlistId = $this->request->getPost('wishlistId');
             $userId = $this->request->getPost('userId');
-            $wishlist = Books::findFirst($wishlistId);
-            $buku->delete();
+
+            $wishlist = Wishlists::findFirst($wishlistId);
+            $wishlist->delete();
             return $this->response->redirect('/profile');
         }
     }

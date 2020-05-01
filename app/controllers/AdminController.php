@@ -45,7 +45,6 @@ class AdminController extends ControllerBase
 
         // passing the result to the view
         $this->view->success = $success;
-
         if ($success) {
             $message = "Thanks for registering!";
         } else {
@@ -106,6 +105,7 @@ class AdminController extends ControllerBase
         $bukuId = $this->dispatcher->getParam(0);
         $buku = Books::findFirst("bukuId = '$bukuId'");
 
+        unlink($buku->gambar);
         $buku->delete();
         return $this->response->redirect('/admin/buku');
     }

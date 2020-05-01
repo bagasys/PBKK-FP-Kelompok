@@ -4,8 +4,16 @@ declare(strict_types=1);
 namespace App\Controllers;
 use App\Models\Users;
 
-class LoginController extends ControllerBase
+class UserController extends ControllerBase
 {
+    public function indexAction()
+    {
+        // $message = $this->dispatcher->getParams(0); 
+
+        // $this->view->success = false;
+        // $this->view->message = var_dump($message);
+    }
+
     private function _registerSession($user)
     {
         $this->session->set(
@@ -23,9 +31,8 @@ class LoginController extends ControllerBase
         );
     }
 
-    public function indexAction()
+    public function loginAction()
     {
-       
        // Get the data from the user
        $username  = $this->request->getPost('username');
        $password = sha1($this->request->getPost('password'));
@@ -60,7 +67,22 @@ class LoginController extends ControllerBase
 
        // passing a message to the view
        $this->view->message = $message;
+
+    //    $this->dispatcher->forward([
+    //     "action" => "index",
+    //     "params" => [
+    //         "success",
+    //         "message"
+    //     ]
+    //     ]);
+
+       return $this->response->redirect('');
+    }
+
+    public function logoutAction()
+    {
+        $this->session->destroy();
+        return $this->response->redirect('');
     }
     
-
 }
