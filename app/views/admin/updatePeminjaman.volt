@@ -17,19 +17,19 @@
   <div class="container-admin">
   <div id="tambah-peminjaman" class="col s12">
     <div class="container-admin">
-      <form action="{{ url('admin/createPeminjaman') }}" method="post">
+      <form action="{{ url('admin/updatePeminjaman') }}" method="post">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="bukuId" type="text" class="validate" name="bukuId" placeholder="Ex: 978-0-262-03384-8" required>
-            <label for="bukuId">id buku</label>
+            <input id="isbn" type="text" class="validate" name="isbn" value="{{ peminjaman.isbn }}" required>
+            <label for="isbn">ISBN Buku</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="userId" type="text" class="validate" name="userId" placeholder="Ex: Sophie's World" required>
-            <label for="userId">id user</label>
+            <input id="username" type="text" class="validate" name="username" value="{{ peminjaman.username }}" required>
+            <label for="userId">Username</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="lamaPinjam" type="number" class="validate" name="lamaPinjam" placeholder="3" required>
-            <label for="lamaPinjam">Lama Pinjam (hari)</label>
+            <input id="lamaPinjam" type="text" class="validate" name="lamaPinjam" value="{{ lamaPinjam }}" required>
+            <label for="lamaPinjam">Lama Pinjam ( Hari )</label>
           </div>
         </div>
         <div class="row">
