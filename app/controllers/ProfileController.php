@@ -33,11 +33,8 @@ class ProfileController extends ControllerBase
         }
 
         $username = $this->session->get('auth')['username'];
-        // $peminjamans = peminjamans::find("username = '$username'");
-        $peminjamans = peminjamans::find([
-            ['username' => 'test'],
-            
-        ]);
+        $peminjamans = peminjamans::find("username = '$username'");
+        // $peminjamans = peminjamans::find("userId = '$id'");
         $arrs2 = array();
         foreach ( $peminjamans as $peminjaman)
         {
