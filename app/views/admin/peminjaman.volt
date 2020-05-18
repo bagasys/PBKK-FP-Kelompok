@@ -38,8 +38,9 @@
           <!-- <a href="/admin/deletePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">delete</i></a> -->
           {% endif %}
         </td>
+      </tr>
       {% endfor %}
-    </tr>
+    
     </tbody>
   </table>
   </div>

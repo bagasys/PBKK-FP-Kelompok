@@ -61,9 +61,7 @@
           $(document).ready(function(){
             $('.datepicker').datepicker();
           });
-          $(document).ready( function () {
-              $('#table_2').DataTable();
-          } );
+          
        </script>
     </body>
 </html>
