@@ -6,6 +6,13 @@ use App\Models\Users;
 
 class SignupController extends ControllerBase
 {
+    public function initialize()
+    {
+        $user = $this->session->get('auth');
+        if(!$user || $user['role'] != 'admin') {
+            return $this->response->redirect('/error');
+        }
+    }
 
     public function indexAction()
     {

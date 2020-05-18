@@ -21,6 +21,7 @@ class WishlistController extends ControllerBase
                 $wishlist->userId = $this->session->get('auth')['userId'];
                 $wishlist->bukuId = $bukuId;
                 $wishlist->save();
+                return $this->response->redirect('/profile');
             }
         }
     }

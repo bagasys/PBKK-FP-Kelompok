@@ -19,6 +19,7 @@ class ProfileController extends ControllerBase
         foreach ( $wishlists as $wishlist)
         {
             $book = Books::findfirst("bukuId = '$wishlist->bukuId'");
+            if(! $book) continue;
             $arr = array();
             array_push($arr, $book, $wishlist);
             array_push($arrs, $arr);

@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col s12 m6">
 			<ul class="pagination">
-				<li class="disabled"><a href="katalog?page={{ page.previous }}"><i class="material-icons">chevron_left</i></a></li>
+				<li class="waves-effect"><a href="katalog?page={{ page.previous }}"><i class="material-icons">chevron_left</i></a></li>
 				<li class="active"><a href="katalog">{{num}}</a></li>
 				<li class="waves-effect"><a href="katalog?page={{ page.next }}"><i class="material-icons">chevron_right</i></a></li>
 			</ul>

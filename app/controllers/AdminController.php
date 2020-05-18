@@ -7,6 +7,14 @@ use App\Models\Peminjamans;
 
 class AdminController extends ControllerBase
 {
+    public function initialize()
+    {
+        $user = $this->session->get('auth');
+        if( ! $user || $user['role'] != 'admin') {
+            return $this->response->redirect('/error');
+        }
+    }
+    
     public function indexAction()
     {
         return $this->response->redirect('/admin/buku');
@@ -129,8 +137,11 @@ class AdminController extends ControllerBase
         $peminjaman = new Peminjamans();
         $peminjaman->username = $this->request->getPost('username');
         $peminjaman->isbn = $this->request->getPost('isbn');
+        
         $tanggal = time();
         $tanggal2 = time() + (86400 * $this->request->getPost('lamaPinjam'));
+        $lamaPinjam = $this->request->getPost('lamaPinjam');
+
         $peminjaman->tglPeminjaman = date('Y-m-d', time());
         $peminjaman->tglHarusKembali = date('Y-m-d', strtotime("now + $lamaPinjam days")); 
         
