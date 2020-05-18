@@ -129,9 +129,8 @@ class AdminController extends ControllerBase
         $peminjaman = new Peminjamans();
         $peminjaman->username = $this->request->getPost('username');
         $peminjaman->isbn = $this->request->getPost('isbn');
-
-        $lamaPinjam = $this->request->getPost('lamaPinjam');
-
+        $tanggal = time();
+        $tanggal2 = time() + (86400 * $this->request->getPost('lamaPinjam'));
         $peminjaman->tglPeminjaman = date('Y-m-d', time());
         $peminjaman->tglHarusKembali = date('Y-m-d', strtotime("now + $lamaPinjam days")); 
         
@@ -143,33 +142,30 @@ class AdminController extends ControllerBase
     public function updatePeminjamanAction(){
         $peminjamanId = $this->dispatcher->getParam(0);
         $peminjaman = Peminjamans::findFirst($peminjamanId);
+        if ($this->request->isPost()){
+            $peminjaman->tglKembali = date('Y-m-d', time());
+            $success = $peminjaman->save();
+            $this->view->success = $success;
 
-        if ($this->request->isPost()) {
-            //assign value from the form to $user
-            $peminjaman->username = $this->request->getPost('username');
-            $peminjaman->isbn = $this->request->getPost('isbn');
-            $lama = $this->request->getPost('lamaPinjam');
-
-            $peminjaman->tglHarusKembali = date('Y-m-d', strtotime("$peminjaman->tglPeminjaman + $lama days")); 
-
-            $peminjaman->save();
+            if ($success) {
+                $message = "Thanks for registering!";
+            } else {
+                $message = "Sorry, the following problems were generated:<br>"
+                        . implode('<br>', $peminjaman->getMessages());
+            }
+            $this->view->message = $message;
+            return $this->response->redirect('/admin/peminjaman');
         }
-
-        $start_date = strtotime($peminjaman->tglPeminjaman); 
-        $end_date = strtotime($peminjaman->tglHarusKembali);
-        $lamaPinjam = ($end_date - $start_date)/60/60/24;
-
+       
+        $tglHarusKembali = date_create($peminjaman->tglHarusKembali);
+        $tglKembali = date_create(date('Y-m-d', time()));
+        $diff = date_diff($tglKembali, $tglHarusKembali);
+        $hariTerlambat=0;
+        if($diff->format("%R") == '-'){
+            $hariTerlambat=$diff->format("%a");
+        }
         $this->view->peminjaman = $peminjaman;
-        $this->view->lamaPinjam = $lamaPinjam;
-    }
-
-    public function deletePeminjamanAction()
-    {
-        $peminjamanId = $this->dispatcher->getParam(0);
-        $peminjaman = Books::findFirst($peminjamanId);
-
-        $peminjaman->delete();
-        return $this->response->redirect('/admin/peminjaman');
+        $this->view->hariTerlambat = $hariTerlambat;
     }
 
 }

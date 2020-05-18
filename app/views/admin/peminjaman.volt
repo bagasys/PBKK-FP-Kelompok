@@ -20,8 +20,9 @@
   <table id="table_id" class="display">
     <thead>
       <tr>
-        <th>isbn buku</th>
+        <th>ISBN</th>
         <th>username</th>
+        <th>aksi</th>
         <th>aksi</th>
       </tr>
     </thead>
@@ -30,6 +31,7 @@
       <tr>
           <td>{{peminjaman.isbn}}</td>
           <td>{{peminjaman.username}}</td>
+          <td>{{peminjaman.tglKembali}}</td>
           <td>
               <a href="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">edit</i></a>
               <a href="/admin/deletePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">delete</i></a>
