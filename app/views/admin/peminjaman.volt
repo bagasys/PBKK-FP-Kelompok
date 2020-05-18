@@ -33,7 +33,7 @@
         <td>{{peminjaman.username}}</td>
         <td>{{peminjaman.tglKembali}}</td>
         <td>
-          {% if peminjaman.tglKembali != null %}
+          {% if peminjaman.tglKembali == null %}
           <a href="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">edit</i></a>
           <!-- <a href="/admin/deletePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">delete</i></a> -->
           {% endif %}

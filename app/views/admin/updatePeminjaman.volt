@@ -35,10 +35,14 @@
             <input disabled id="terlambat" type="text" class="validate" name="terlambat" value="{{ hariTerlambat }}" required>
             <label for="terlambat">Terlambat (hari)</label>
           </div>
+          <div class="input-field col s12 m6">
+            <input disabled id="denda" type="text" class="validate" name="denda" value="{{ denda }}" required>
+            <label for="denda">Denda (hari)</label>
+          </div>
         </div>
         <div class="row">
           <div class="col s12">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light" type="submit" name="action">Kembalikan
               <i class="material-icons right">send</i>
             </button>
           </div>
