@@ -119,11 +119,14 @@
               </div>
             </div>
           </footer>
-          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+          <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
         
+          <script src="{{ url('js/materialize.min.js') }}"></script> -->
+          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           <script src="{{ url('js/materialize.min.js') }}"></script>
-        <script src="js/init.js"></script>
+          <script src="{{ url('js/init.js') }}"></script>
+          <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
         <script>
           $(document).ready(function(){
             $('.sidenav').sidenav();
@@ -131,7 +134,9 @@
           $(document).ready(function(){
             $('.modal').modal();
           });
-          
+          $(document).ready( function () {
+              $('#table_3').DataTable();
+          });
        </script>
     </body>
 </html>
