@@ -171,12 +171,16 @@ class AdminController extends ControllerBase
         $tglHarusKembali = date_create($peminjaman->tglHarusKembali);
         $tglKembali = date_create(date('Y-m-d', time()));
         $diff = date_diff($tglKembali, $tglHarusKembali);
-        $hariTerlambat=0;
+        $hariTerlambat = 0;
         if($diff->format("%R") == '-'){
             $hariTerlambat=$diff->format("%a");
         }
         $this->view->peminjaman = $peminjaman;
         $this->view->hariTerlambat = $hariTerlambat;
+
+        $buku = Books::findFirst("isbn = '$peminjaman->isbn'");
+        $this->view->buku = $buku;
+        $this->view->denda = $hariTerlambat * $buku->dendaPerHari;
     }
 
 }
