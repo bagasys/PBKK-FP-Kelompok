@@ -36,9 +36,6 @@
             <li class="collection-item avatar">
                 <i class="material-icons circle">folder</i>
                 <span class="title">{{arr[0].judul}}</span>
-              <p>Deskripsi :
-                {{ arr[0].deskripsi }}
-              </p>
               <div class="secondary-content black-text">
                 <a href="/profile/deleteWishlist/{{arr[1].wishlistId}}"><i class="material-icons prefix">delete</i></a>
               </div>
