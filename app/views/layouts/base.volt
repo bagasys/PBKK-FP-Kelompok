@@ -22,10 +22,9 @@
                 <li><a class="modal-trigger" href="#modal-login">Login</a></li>
               {% elseif session.get('auth')["role"] == "admin" %} {# variable is set #}
                 <li><a class="" href="/admin">Admin</a></li>
-                <li><a class="" href="/katalog">Katalog</a></li>
                 <li><a class="" href="{{ url('user/logout') }}">Logout</a></li>
               {% else %} {# variable is set #}
-              <li><a class="" href="/profile">profile</a></li>
+                <li><a class="" href="/profile">Profile</a></li>
                 <li><a class="" href="{{ url('user/logout') }}">Logout</a></li>
               {% endif %}
             </ul>
