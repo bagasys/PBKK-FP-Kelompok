@@ -13,7 +13,7 @@
         <button class="btn waves-effect waves-light disabled" type="submit" style="width: 180px;" name="action">
           <i class="material-icons left">add</i> Wishlist
         </button>
-        {% elseif isWished%}
+        {% elseif isWished %}
         <button class="btn waves-effect waves-light pink accent-3" type="submit" style="width: 180px;" name="action">
           <i class="material-icons left">remove</i> on Wishlist
         </button>

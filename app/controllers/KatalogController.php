@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 use App\Models\Books;
+use App\Models\Wishlists;
 use Phalcon\Paginator\Adapter\NativeArray as PaginatorArray;
 
 class KatalogController extends ControllerBase
@@ -37,6 +38,16 @@ class KatalogController extends ControllerBase
     {
         $bukuId = $this->dispatcher->getParam(0);
         $buku = Books::findFirst("bukuId = '$bukuId'");
+
+        if ($this->session->has('auth')){
+            $userId = $this->session->get('auth')["userId"];
+            $isWished = Wishlists::findFirst("userId = $userId AND bukuId = '$bukuId'");
+        }
+        else{
+            $isWished = null;
+        }
+
+        $this->view->isWished = $isWished;
         $this->view->buku = $buku;
     }
 
