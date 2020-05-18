@@ -7,15 +7,23 @@
         <div class="">
           <img src="/public/{{buku.gambar}}"style="height: 288px; width:180px;" alt="" srcset="">
         </div>
+        
         <div class="">
-          <form action="{{url('wishlist/create')}}" method="post">
-            <input class="hide" type="number" name="userId" value="{{session.auth['userId']}}">
-            <input class="hide" type="number" name="bukuId" value="{{buku.bukuId}}">
-            <button class="btn waves-effect waves-light" type="submit" style="width: 180px;" name="action">
-              <i class="material-icons left">add</i> Wishlist
-            </button>
-          </form>
-                  </div>
+        {% if session.get('auth') == null %} {# variable is not set #}
+        <button class="btn waves-effect waves-light disabled" type="submit" style="width: 180px;" name="action">
+          <i class="material-icons left">add</i> Wishlist
+        </button>
+        {% else %}
+        <form action="{{url('wishlist/create')}}" method="post">
+          <input class="hide" type="number" name="userId" value="{{session.auth['userId']}}">
+          <input class="hide" type="number" name="bukuId" value="{{buku.bukuId}}">
+          <button class="btn waves-effect waves-light" type="submit" style="width: 180px;" name="action">
+            <i class="material-icons left">add</i> Wishlist
+          </button>
+        </form>
+        {% endif %}  
+        </div>
+      
       </div>
       <div class="col s6 m8">
         <h4>{{buku.judul}}</h4>

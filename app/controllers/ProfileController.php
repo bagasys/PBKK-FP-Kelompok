@@ -8,7 +8,13 @@ use App\Models\Books;
 
 class ProfileController extends ControllerBase
 {
-
+    public function initialize()
+    {
+        $user = $this->session->get('auth');
+        if( ! $user || $user['role'] != 'admin') {
+            return $this->response->redirect('/error');
+        }
+    }
     public function indexAction()
     {
         $user = $this->session->get('auth');
