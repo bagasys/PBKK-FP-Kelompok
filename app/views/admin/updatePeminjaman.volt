@@ -20,15 +20,15 @@
       <form action="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}" method="post">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="isbn" type="text" class="validate" name="isbn" value="{{ peminjaman.isbn }}" required>
+            <input disabled id="isbn" type="text" class="validate" name="isbn" value="{{ peminjaman.isbn }}" required>
             <label for="isbn">ISBN Buku</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="username" type="text" class="validate" name="username" value="{{ peminjaman.username }}" required>
+            <input disabled id="username" type="text" class="validate" name="username" value="{{ peminjaman.username }}" required>
             <label for="userId">Username</label>
           </div>
           <div class="input-field col s12 m6">
-            <input id="lamaPinjam" type="text" class="validate" name="lamaPinjam" value="{{ hariTerlambat }}" required>
+            <input disabled id="lamaPinjam" type="text" class="validate" name="lamaPinjam" value="{{ hariTerlambat }}" required>
             <label for="lamaPinjam">Terlambat (hari)</label>
           </div>
         </div>
