@@ -8,47 +8,42 @@
           <li>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           </li>
-          <li class="tab col s6"><a href="#daftar-peminjaman">Daftar Peminjaman</a></li>
-          <li class="tab col s6"><a href="#tambah-peminjaman">Tambah Peminjaman</a></li>
+          <li class="tab col s6"><a href="#daftar-buku">Daftar Peminjaman</a></li>
+          <li class="tab col s6"><a href="#tambah-buku">Tambah Peminjaman</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container-admin">
-    <div id="daftar-peminjaman">
-      <h4>Daftar Buku</h4>
+    <div id="daftar-buku">
+      <h4>Daftar Peminjaman</h4>
   <table id="table_id" class="display">
     <thead>
       <tr>
         <th>ISBN</th>
         <th>username</th>
-        <th>aksi</th>
+        <th>tgl_kembali</th>
         <th>aksi</th>
       </tr>
     </thead>
     <tbody>
-      {%for peminjaman in peminjamans%}
+      {% for peminjaman in peminjamans %}
       <tr>
-          <td>{{peminjaman.isbn}}</td>
-          <td>{{peminjaman.username}}</td>
-          <td>{{peminjaman.tglKembali}}</td>
-          <td>
-              <a href="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">edit</i></a>
-              <a href="/admin/deletePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">delete</i></a>
-              {% if peminjaman.tglKembali != null %}
-                <a href="/admin/setPeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">check_circle</i></a>
-              {% else %}
-                <a href="/admin/setPeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">check_circle_outline</i></a>
-              {% endif %}
-          </td>
-      </tr>
-      {%endfor%}
+        <td>{{peminjaman.isbn}}</td>
+        <td>{{peminjaman.username}}</td>
+        <td>{{peminjaman.tglKembali}}</td>
+        <td>
+          {% if peminjaman.tglKembali != null %}
+          <a href="/admin/updatePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">edit</i></a>
+          <!-- <a href="/admin/deletePeminjaman/{{peminjaman.peminjamanId}}"><i class="material-icons prefix">delete</i></a> -->
+          {% endif %}
+        </td>
+      {% endfor %}
+    </tr>
     </tbody>
   </table>
   </div>
-
-
-  <div id="tambah-peminjaman" class="col s12">
+  <div id="tambah-buku" class="col s12">
     <br>
     <div class="container-admin">
       <form action="{{ url('admin/createPeminjaman') }}" method="post">
