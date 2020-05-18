@@ -157,14 +157,6 @@ class AdminController extends ControllerBase
             $peminjaman->tglKembali = date('Y-m-d', time());
             $success = $peminjaman->save();
             $this->view->success = $success;
-
-            if ($success) {
-                $message = "Thanks for registering!";
-            } else {
-                $message = "Sorry, the following problems were generated:<br>"
-                        . implode('<br>', $peminjaman->getMessages());
-            }
-            $this->view->message = $message;
             return $this->response->redirect('/admin/peminjaman');
         }
        
