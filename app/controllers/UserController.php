@@ -61,22 +61,13 @@ class UserController extends ControllerBase
 
        if ($success) {
            $message = "Login Sukses!";
+           $this->view->message = $message;
+           return $this->response->redirect('user');
        } else {
            $message = "Email atau Password Salah<br>";
+           $this->view->message = $message;
+           return $this->response->redirect('/');
        }
-
-       // passing a message to the view
-       $this->view->message = $message;
-
-    //    $this->dispatcher->forward([
-    //     "action" => "index",
-    //     "params" => [
-    //         "success",
-    //         "message"
-    //     ]
-    //     ]);
-
-       return $this->response->redirect('user');
     }
 
     public function logoutAction()
