@@ -8,17 +8,17 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-       // Check if the variable is defined
-       $flag = 0;
-       if ($this->session->has('auth')) {
-            // Retrieve its value
-            $user = $this->session->get('auth');
-            if($user && $user['role'] != 'admin') {
-                $flag = 1;
-            }
-        }
+    //    // Check if the variable is defined
+    //    $flag = false;
+    //    if ($this->session->has('auth')) {
+    //         // Retrieve its value
+    //         $user = $this->session->get('auth');
+    //         if($user && $user['role'] != 'admin') {
+    //             $flag = true;
+    //         }
+    //     }
 
-        return $this->view->admin = $flag;
+    //     $this->view->admin = $flag;
     }
 
 }
