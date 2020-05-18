@@ -45,6 +45,7 @@ class SignupController extends ControllerBase
 
         // passing a message to the view
         $this->view->message = $message;
+        return $this->response->redirect('');
     }
 
 }

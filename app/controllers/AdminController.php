@@ -7,10 +7,9 @@ use App\Models\Peminjamans;
 
 class AdminController extends ControllerBase
 {
-
     public function indexAction()
     {
-
+        return $this->response->redirect('/admin/buku');
     }
 
     public function bukuAction(){
@@ -77,7 +76,6 @@ class AdminController extends ControllerBase
 
         if ($this->request->isPost()) {
             //assign value from the form to $user
-            $buku = Books::findFirst($bukuId);
             $buku->isbn = $this->request->getPost('isbn');
             $buku->judul = $this->request->getPost('judul');
             $buku->penulis = $this->request->getPost('penulis');
@@ -100,6 +98,16 @@ class AdminController extends ControllerBase
         $this->view->buku = $buku;
     }
 
+    public function setBukuAction()
+    {
+        $bukuId = $this->dispatcher->getParam(0);
+        $buku = Books::findFirst("bukuId = '$bukuId'");
+        $buku->status = !$buku->status;
+
+        $buku->save();
+        return $this->response->redirect('/admin/buku');
+    }
+
     public function deleteBukuAction()
     {
         $bukuId = $this->dispatcher->getParam(0);
@@ -119,29 +127,49 @@ class AdminController extends ControllerBase
     public function createPeminjamanAction()
     {
         $peminjaman = new Peminjamans();
-        $peminjaman->userId = $this->request->getPost('userId');
-        $peminjaman->bukuId = $this->request->getPost('bukuId');
-        $tanggal = time();
-        $tanggal2 = time() + (86400 * $this->request->getPost('lamaPinjam'));
-        $peminjaman->tglPeminjaman = date('Y-m-d', time());
-        $peminjaman->tglHarusKembali = date('Y-m-d', time() + (86400*3));        
-        $success = $peminjaman->save();
-        $this->view->success = $success;
+        $peminjaman->username = $this->request->getPost('username');
+        $peminjaman->isbn = $this->request->getPost('isbn');
 
-        if ($success) {
-            $message = "Thanks for registering!";
-        } else {
-            $message = "Sorry, the following problems were generated:<br>"
-                     . implode('<br>', $peminjaman->getMessages());
-        }
-        $this->view->message = $message;
+        $lamaPinjam = $this->request->getPost('lamaPinjam');
+
+        $peminjaman->tglPeminjaman = date('Y-m-d', time());
+        $peminjaman->tglHarusKembali = date('Y-m-d', strtotime("now + $lamaPinjam days")); 
+        
+        $peminjaman->save();
+
         return $this->response->redirect('/admin/peminjaman');
     }
 
     public function updatePeminjamanAction(){
         $peminjamanId = $this->dispatcher->getParam(0);
         $peminjaman = Peminjamans::findFirst($peminjamanId);
+
+        if ($this->request->isPost()) {
+            //assign value from the form to $user
+            $peminjaman->username = $this->request->getPost('username');
+            $peminjaman->isbn = $this->request->getPost('isbn');
+            $lama = $this->request->getPost('lamaPinjam');
+
+            $peminjaman->tglHarusKembali = date('Y-m-d', strtotime("$peminjaman->tglPeminjaman + $lama days")); 
+
+            $peminjaman->save();
+        }
+
+        $start_date = strtotime($peminjaman->tglPeminjaman); 
+        $end_date = strtotime($peminjaman->tglHarusKembali);
+        $lamaPinjam = ($end_date - $start_date)/60/60/24;
+
         $this->view->peminjaman = $peminjaman;
+        $this->view->lamaPinjam = $lamaPinjam;
+    }
+
+    public function deletePeminjamanAction()
+    {
+        $peminjamanId = $this->dispatcher->getParam(0);
+        $peminjaman = Books::findFirst($peminjamanId);
+
+        $peminjaman->delete();
+        return $this->response->redirect('/admin/peminjaman');
     }
 
 }

@@ -76,7 +76,7 @@ class UserController extends ControllerBase
     //     ]
     //     ]);
 
-       return $this->response->redirect('');
+       return $this->response->redirect('user');
     }
 
     public function logoutAction()
