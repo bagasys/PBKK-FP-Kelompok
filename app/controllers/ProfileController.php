@@ -21,7 +21,7 @@ class ProfileController extends ControllerBase
         $user = $this->session->get('auth');
         $id = $user['userId'];
 
-        $arrs = array();
+        $books_wishlists = array();
         $wishlists = Wishlists::find("userId = '$id'");
         foreach ( $wishlists as $wishlist)
         {
@@ -29,22 +29,23 @@ class ProfileController extends ControllerBase
             if(! $book) continue;
             $arr = array();
             array_push($arr, $book, $wishlist);
-            array_push($arrs, $arr);
+            array_push($books_wishlists , $arr);
         }
 
         $username = $this->session->get('auth')['username'];
-        $peminjamans = peminjamans::find("username = '$username'");
+        $peminjamans = peminjamans::find("username = '$username' AND tglKembali IS NULL");
         // $peminjamans = peminjamans::find("userId = '$id'");
-        $arrs2 = array();
+        $books_peminjamans = array();
         foreach ( $peminjamans as $peminjaman)
         {
             $book = Books::findfirst("isbn = '$peminjaman->isbn'");
             $arr2 = array();
             array_push($arr2, $book, $peminjaman);
-            array_push($arrs2, $arr2);
+            array_push($books_peminjamans, $arr2);
         }
-        $this->view->peminjamans = $arrs2;
-        $this->view->arrs = $arrs;
+        
+        $this->view->peminjamans = $books_peminjamans;
+        $this->view->arrs = $books_wishlists;
     }
     
     public function deleteWishlistAction()

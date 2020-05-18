@@ -22,6 +22,7 @@
       <tr>
         <th>ISBN</th>
         <th>username</th>
+        <th>tgl_pinjam</th>
         <th>tgl_kembali</th>
         <th>aksi</th>
       </tr>
@@ -31,6 +32,7 @@
       <tr>
         <td>{{peminjaman.isbn}}</td>
         <td>{{peminjaman.username}}</td>
+        <td>{{peminjaman.tglPeminjaman}}</td>
         <td>{{peminjaman.tglKembali}}</td>
         <td>
           {% if peminjaman.tglKembali == null %}
