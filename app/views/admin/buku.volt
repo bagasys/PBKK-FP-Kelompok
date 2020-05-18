@@ -22,6 +22,7 @@
       <tr>
         <th>ISBN</th>
         <th>Judul Buku</th>
+        <th>Tersedia</th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -31,14 +32,18 @@
           <td>{{book.isbn}}</td>
           <td>{{book.judul}}</td>
           <td>
-              <a href="/admin/readbuku/{{book.bukuId}}"><i class="material-icons prefix">search</i></a>
+            {% if book.status %}
+            <i class="material-icons prefix">check_circle</i>
+            {%else%}
+            -
+            {% endif %}
+          </td>
+          <td>
+            
+            <a href="/admin/readbuku/{{book.bukuId}}"><i class="material-icons prefix">search</i></a>
               <a href="/admin/updatebuku/{{book.bukuId}}"><i class="material-icons prefix">edit</i></a>
               <a href="/admin/deletebuku/{{book.bukuId}}"><i class="material-icons prefix">delete</i></a>
-              {% if book.status %}
-                <a href="/admin/setbuku/{{book.bukuId}}"><i class="material-icons prefix">check_circle</i></a>
-              {% else %}
-                <a href="/admin/setbuku/{{book.bukuId}}"><i class="material-icons prefix">check_circle_outline</i></a>
-              {% endif %}
+                <!-- <a href="/admin/setbuku/{{book.bukuId}}"><i class="material-icons prefix">check_circle_outline</i></a> -->
           </td>
       </tr> 
       {% endfor %}
