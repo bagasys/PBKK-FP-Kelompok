@@ -13,10 +13,15 @@
         <button class="btn waves-effect waves-light disabled" type="submit" style="width: 180px;" name="action">
           <i class="material-icons left">add</i> Wishlist
         </button>
-        {% elseif isWished%}
-        <button class="btn waves-effect waves-light pink accent-3" type="submit" style="width: 180px;" name="action">
-          <i class="material-icons left">remove</i> on Wishlist
-        </button>
+        {% elseif isWished %}
+        <form action="{{url('wishlist/delete')}}" method="post">
+          <input class="hide" type="number" name="userId" value="{{session.auth['userId']}}">
+          <input class="hide" type="number" name="bukuId" value="{{buku.bukuId}}">
+          <input class="hide" type="text" name="pageAddress" value="/katalog/detail/{{buku.bukuId}}">
+          <button class="btn waves-effect waves-light pink accent-3" type="submit" style="width: 180px;" name="action">
+            <i class="material-icons left">remove</i> on Wishlist
+          </button>
+        </form>
         {% else %}
         <form action="{{url('wishlist/create')}}" method="post">
           <input class="hide" type="number" name="userId" value="{{session.auth['userId']}}">
