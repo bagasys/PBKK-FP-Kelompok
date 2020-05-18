@@ -29,13 +29,6 @@
         {% block content %} 
         
         {% endblock %}
-
-          
-      
-        
-    
-
-     
         <footer class="page-footer teal">
            
             <div class="footer-copyright">
@@ -68,6 +61,9 @@
           $(document).ready(function(){
             $('.datepicker').datepicker();
           });
+          $(document).ready( function () {
+              $('#table_2').DataTable();
+          } );
        </script>
     </body>
 </html>
